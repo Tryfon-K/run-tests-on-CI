@@ -17,4 +17,10 @@ test('get started link', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
 
-//adding a comment to trigger a CI test run
+
+test('homepage has the correct URL', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Expect the URL to contain the expected substring.
+  await expect(page).toHaveURL('https://playwright.dev/');
+});
